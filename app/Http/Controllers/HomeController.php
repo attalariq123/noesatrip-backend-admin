@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $total_destinations = Destination::all()->count();
+        $total_users = User::all()->count();
+        return view('home', compact('total_destinations', 'total_users'));
     }
 }

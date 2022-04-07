@@ -1,7 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DestinationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +25,21 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
-    // Route::view('about', 'about')->name('about');
-    
+
     // TEST
-    Route::view('destination', 'destination')->name('destination');
+    Route::view('orders', 'orders')->name('orders');
     Route::view('transactions', 'transactions')->name('transactions');
     Route::view('settings', 'settings')->name('settings');
     Route::view('logout', 'logout')->name('logout');
     // TEST
+    
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    
+    Route::resource('destinations', DestinationController::class);
 
-    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-
-    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });

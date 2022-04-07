@@ -4,8 +4,6 @@
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
-    <h1 class="text-center mt-4 font-weight-bolder font-size-large text-white">NOESATRIP</h1>
-
     <div class="col-xl-10 col-lg-12 col-md-9">
 
         <div class="card o-hidden border-0 shadow-lg my-4">
@@ -16,6 +14,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
+                                <h1 class="h3 text-primary font-weight-bolder mb-1">{{ __('NOESATRIP') }}</h1>
                                 <h1 class="h4 text-gray-900 mb-4">{{ __('Selamat Datang!') }}</h1>
                             </div>
                             <form action="{{ route('login') }}" method="post" class="user">
@@ -45,7 +44,7 @@
                                         <label class="custom-control-label" for="customCheck">{{ __('Remember Me') }}</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-user btn-block" style="background-color: #3252DF; color: #fff;">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
                                     {{ __('Login') }}
                                 </button>
                             </form>

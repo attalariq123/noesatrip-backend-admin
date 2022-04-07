@@ -47,7 +47,7 @@
 
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-user btn-block" style="background-color: #3252DF; color: #fff;">
+                        <button type="submit" class="btn btn-primary btn-user btn-block">
                             {{ __('Reset My Password') }}
                         </button>
                     </form>

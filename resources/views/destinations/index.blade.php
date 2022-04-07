@@ -5,47 +5,47 @@
 @endsection
 
 @section('content')
-<!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 font-weight-bold">Users</h1>
+    <h1 class="h3 mb-2 text-gray-800 font-weight-bold">Destinations</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="#" class="btn btn-primary m-0 font-weight-bold">Add User</a>
+            <a href="{{ route('destinations.create') }}" class="btn btn-primary m-0 font-weight-bold">Add Destination</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-borderless table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
+                            <th>Code</th>
                             <th>Name</th>
-                            <th>Email Address</th>
-                            <th>Role</th>
-                            <th>Created at</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Rating</th>
+                            <th>Total Review</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach ($destinations as $des)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $des->kode }}</td>
+                            <td>{{ $des->name }}</td>
+                            <td class="d-inline-block text-truncate" style="max-width: 460px;">{{ $des->description }}</td>
+                            <td>Rp {{ $des->price }}</td>
+                            <td>{{ $des->overall_rating }}</td>
+                            <td>{{ $des->total_review }}</td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-
-                {{ $users->links() }}
-
             </div>
         </div>
     </div>
 
 </div>
-<!-- /.container-fluid -->
 @endsection
 
 @section('custom_scripts')

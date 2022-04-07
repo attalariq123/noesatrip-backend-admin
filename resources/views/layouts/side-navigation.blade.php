@@ -2,7 +2,7 @@
 <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #3252DF;" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home')}}">
         <div class="brand-icon">
             <i class="fas fa-campground fa-2x"></i>
         </div>
@@ -35,11 +35,22 @@
     </li>
 
     <!-- Nav Item - Destinations -->
-    <li class="nav-item @if(request()->routeIs('destination')) active @endif">
-        <a class="nav-link" href="{{ route('destination') }}">
+    <li class="nav-item @if(request()->routeIs('destinations.index')) active @endif">
+        <a class="nav-link" href="{{ route('destinations.index') }}">
             <i class="fas fa-fw fa-map-marker-alt"></i>
-            <span>{{ __('Destination') }}</span></a>
+            <span>{{ __('Destinations') }}</span></a>
     </li>
+
+    <!-- Nav Item - Orders -->
+    <li class="nav-item @if(request()->routeIs('orders')) active @endif">
+        <a class="nav-link" href="{{ route('orders') }}">
+            <i class="fas fa-fw fa-shopping-cart"></i>
+            <span>{{ __('Orders') }}</span></a>
+    </li>
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
     <!-- Nav Item - Transactions -->
     <li class="nav-item @if(request()->routeIs('transactions')) active @endif">
@@ -47,9 +58,6 @@
             <i class="fas fa-fw fa-money-bill-alt"></i>
             <span>{{ __('Transactions') }}</span></a>
     </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
     <li class="nav-item @if(request()->routeIs('settings')) active @endif">
         <a class="nav-link" href="{{ route('settings') }}">

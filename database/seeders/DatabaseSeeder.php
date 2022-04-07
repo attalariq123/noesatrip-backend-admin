@@ -14,12 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // \App\Models\UserBaru::factory(10)->create();
 
         DB::table('users')->insert([
-            'name' => 'atta',
-            'email' => 'atta@gmail.com',
-            'password' => bcrypt('123456')
+            'name' => 'Attalariq',
+            'email' => 'attalariq@admin.com',
+            'password' => bcrypt('12312312'),
+            'role' => 'admin',
+        ]);
+
+        DB::table('destinations')->insert([
+            'kode' => 'LBJ01',
+            'name' => 'Labuan Bajo',
+            'description' => 'Labuan Bajo is a fishing town located at the western end of the large island of Flores in the Nusa Tenggara region of east Indonesia. It is the capital of the West Manggarai Regency (Kabupaten Manggarai Barat), one of the eight regencies which are the major administrative divisions of Flores.',
+            'price' => 1499000,
         ]);
     }
 }

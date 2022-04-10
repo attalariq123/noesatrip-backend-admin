@@ -5,47 +5,43 @@
 @endsection
 
 @section('content')
-<!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 font-weight-bold">Users</h1>
+    <h1 class="h3 mb-2 text-gray-800 font-weight-bold">Destinations</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="#" class="btn btn-primary m-0 font-weight-bold">Add User</a>
+            <a href="{{ route('events.create') }}" class="btn btn-primary m-0 font-weight-bold">Add Events</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-borderless table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
+                            <th>Destination ID</th>
                             <th>Name</th>
-                            <th>Email Address</th>
-                            <th>Role</th>
-                            <th>Registration Date</th>
+                            <th>Description</th>
+                            <th>Duration</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach ($events as $eve)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $eve->destination_id }}</td>
+                            <td>{{ $eve->name }}</td>
+                            <td>{{ $eve->description }}</td>
+                            <td>{{ $eve->duration }} minutes</td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-
-                {{ $users->links() }}
-
             </div>
         </div>
     </div>
 
 </div>
-<!-- /.container-fluid -->
 @endsection
 
 @section('custom_scripts')

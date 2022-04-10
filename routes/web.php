@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DestinationController;
-
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +38,10 @@ Route::middleware('auth')->group(function () {
     
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     
-    Route::resource('destinations', DestinationController::class);
-
     Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    
+    Route::resource('destinations', DestinationController::class);
+    Route::resource('events', EventController::class);
+
 });

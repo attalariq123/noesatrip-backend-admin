@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,7 @@ class HomeController extends Controller
     {
         $total_destinations = Destination::all()->count();
         $total_users = User::all()->count();
-        return view('home', compact('total_destinations', 'total_users'));
+        $total_events = Event::all()->count();
+        return view('home', compact('total_destinations', 'total_users', 'total_events'));
     }
 }

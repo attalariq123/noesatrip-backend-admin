@@ -41,6 +41,13 @@
             <span>{{ __('Destinations') }}</span></a>
     </li>
 
+    <!-- Nav Item - Events -->
+    <li class="nav-item @if(request()->routeIs('events.index')) active @endif">
+        <a class="nav-link" href="{{ route('events.index') }}">
+            <i class="fas fa-fw fa-calendar-alt"></i>
+            <span>{{ __('Events') }}</span></a>
+    </li>
+
     <!-- Nav Item - Orders -->
     <li class="nav-item @if(request()->routeIs('orders')) active @endif">
         <a class="nav-link" href="{{ route('orders') }}">

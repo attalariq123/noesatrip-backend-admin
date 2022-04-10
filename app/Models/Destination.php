@@ -13,16 +13,12 @@ class Destination extends Model
 
     protected $table = 'destinations';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'kode',
         'name',
         'description',
         'price',
+        'city',
         'overall_rating',
         'total_review',
     ];

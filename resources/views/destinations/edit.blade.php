@@ -19,8 +19,9 @@
 
                 <div class="card">
 
-                    <form action="{{ route('destinations.store') }}" method="POST">
+                    <form action="{{ route('destinations.update', $destination->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
 
                         <div class="card-body col-lg-8">
 
@@ -28,7 +29,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Code</span>
                                 </div>
-                                <input type="text" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="{{ __('Code') }}" required>
+                                <input type="text" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="{{ __('Code') }}" value="{{ $destination->kode }}" required>
                             </div>
                             @error('code')
                             <div class="form-group custom-control">
@@ -40,7 +41,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Name</span>
                                 </div>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('Name') }}" required>
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('Name') }}" value="{{ $destination->name }}" required>
                             </div>
                             @error('name')
                             <div class="form-group custom-control">
@@ -52,7 +53,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Description</span>
                                 </div>
-                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="4" cols="50" placeholder="{{ __('Description') }}" required></textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="4" cols="50" placeholder="{{ __('Description') }}" required>{{ $destination->description }}</textarea>
                             </div>
                             @error('description')
                             <div class="form-group custom-control">
@@ -64,7 +65,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Price</span>
                                 </div>
-                                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('Price') }}" required>
+                                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('Price') }}" value="{{ $destination->price }}" required>
                             </div>
                             @error('price')
                             <div class="form-group custom-control">
@@ -76,7 +77,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">City</span>
                                 </div>
-                                <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="{{ __('City') }}" required>
+                                <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="{{ __('City') }}" value="{{ $destination->city }}" required>
                             </div>
                             @error('city')
                             <div class="form-group custom-control">
@@ -87,7 +88,7 @@
                         </div>
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
                         </div>
                 </div>
             </div>

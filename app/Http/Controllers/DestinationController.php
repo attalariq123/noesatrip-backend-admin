@@ -41,6 +41,7 @@ class DestinationController extends Controller
             'name' => $r->name,
             'description' => $r->description,
             'price' => $r->price,
+            'city' => $r->city,
         ]);
 
         return redirect()->route('destinations.index');
@@ -65,7 +66,8 @@ class DestinationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $destination = Destination::find($id);
+        return view('destinations.edit', compact('destination'));
     }
 
     /**
@@ -75,9 +77,17 @@ class DestinationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $r, $id)
     {
-        //
+        $destination = Destination::where('id', $id)->update([
+            'kode' => $r->code,
+            'name' => $r->name,
+            'description' => $r->description,
+            'price' => $r->price,
+            'city' => $r->city,
+        ]);
+
+        return redirect()->route('destinations.index');
     }
 
     /**
@@ -88,6 +98,10 @@ class DestinationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destination = Destination::find($id)->first();
+
+        $destination->delete();
+
+        return redirect()->route('destinations.index');
     }
 }

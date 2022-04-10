@@ -19,6 +19,7 @@ class CreateDestinations extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('price');
+            $table->string('city');
             $table->decimal('overall_rating')->nullable()->default(0.0);
             $table->integer('total_review')->nullable()->default(0);
             $table->timestamps();

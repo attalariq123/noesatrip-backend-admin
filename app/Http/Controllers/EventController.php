@@ -25,7 +25,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -34,9 +34,16 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        $event = Event::create([
+            'destination_id' => $r->dest_id,
+            'name' => $r->name,
+            'description' => $r->description,
+            'duration' => $r->duration,
+        ]);
+
+        return redirect()->route('events.index');
     }
 
     /**
@@ -58,7 +65,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -68,9 +77,16 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $r, $id)
     {
-        //
+        $event = Event::where('id', $id)->update([
+            'destination_id' => $r->dest_id,
+            'name' => $r->name,
+            'description' => $r->description,
+            'duration' => $r->duration,
+        ]);
+
+        return redirect()->route('events.index');
     }
 
     /**
@@ -81,6 +97,10 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+
+        $event->delete();
+
+        return redirect()->route('events.index');
     }
 }

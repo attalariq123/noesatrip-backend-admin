@@ -5,7 +5,7 @@
 <div class="content">
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">{{ __('Add Destination') }}</h1>
+        <h1 class="h3 mb-2 text-gray-800 font-weight-bold">{{ __('Add Destination') }}</h1>
 
         <div class="row">
             <div class="col-lg-12">
@@ -64,7 +64,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Price</span>
                                 </div>
-                                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('Price') }}" required>
+                                <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('Price, ex: 99000') }}" required>
                             </div>
                             @error('price')
                             <div class="form-group custom-control">

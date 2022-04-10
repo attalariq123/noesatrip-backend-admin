@@ -98,7 +98,7 @@ class DestinationController extends Controller
      */
     public function destroy($id)
     {
-        $destination = Destination::find($id)->first();
+        $destination = Destination::find($id);
 
         $destination->delete();
 

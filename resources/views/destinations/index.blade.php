@@ -20,6 +20,7 @@
                 <table class="table table-borderless table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
+                            <th>#</th>
                             <th>Code</th>
                             <th>Name</th>
                             <th>Description</th>
@@ -33,6 +34,7 @@
                     <tbody>
                         @foreach ($destinations as $des)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $des->kode }}</td>
                             <td>{{ $des->name }}</td>
                             <td class="d-inline-block text-truncate" style="max-width: 300px;">{{ $des->description }}</td>

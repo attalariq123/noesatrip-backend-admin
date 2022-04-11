@@ -45,7 +45,7 @@ class EventController extends Controller
             'duration' => $r->duration,
         ]);
 
-        return redirect()->route('menu.events.index');
+        return redirect()->route('events.index');
     }
 
     /**
@@ -89,7 +89,7 @@ class EventController extends Controller
             'duration' => $r->duration,
         ]);
 
-        return redirect()->route('menu.events.index');
+        return redirect()->route('events.index');
     }
 
     /**
@@ -104,6 +104,6 @@ class EventController extends Controller
 
         $event->delete();
 
-        return redirect()->route('menu.events.index');
+        return redirect()->route('events.index');
     }
 }

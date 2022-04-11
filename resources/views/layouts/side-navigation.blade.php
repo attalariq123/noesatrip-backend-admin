@@ -50,7 +50,7 @@
 
     <!-- Nav Item - Orders -->
     <li class="nav-item @if(request()->routeIs('orders')) active @endif">
-        <a class="nav-link" href="{{ route('orders') }}">
+        <a class="nav-link" href="{{ route('orders.index') }}">
             <i class="fas fa-fw fa-shopping-cart"></i>
             <span>{{ __('Orders') }}</span></a>
     </li>

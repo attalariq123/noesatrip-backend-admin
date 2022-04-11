@@ -44,7 +44,7 @@ class DestinationController extends Controller
             'city' => $r->city,
         ]);
 
-        return redirect()->route('menu.destinations.index');
+        return redirect()->route('destinations.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class DestinationController extends Controller
             'city' => $r->city,
         ]);
 
-        return redirect()->route('menu.destinations.index');
+        return redirect()->route('destinations.index');
     }
 
     /**
@@ -102,6 +102,6 @@ class DestinationController extends Controller
 
         $destination->delete();
 
-        return redirect()->route('menu.destinations.index');
+        return redirect()->route('destinations.index');
     }
 }

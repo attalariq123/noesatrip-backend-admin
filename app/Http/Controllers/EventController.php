@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        $idName = Destination::orderBy('id')->get();
+        return view('events.create', compact('idName'));
     }
 
     /**
@@ -66,8 +68,9 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
+        $idName = Destination::orderBy('id')->get();
 
-        return view('events.edit', compact('event'));
+        return view('events.edit', compact('event', 'idName'));
     }
 
     /**

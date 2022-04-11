@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Main content -->
+
 <div class="content">
     <div class="container-fluid">
-        <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800 font-weight-bold">{{ __('Add Event') }}</h1>
 
         <div class="row">
@@ -15,7 +14,6 @@
                     {{ $message }}
                 </div>
                 @endif
-
 
                 <div class="card">
 
@@ -28,7 +26,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Destination ID</span>
                                 </div>
-                                <input type="number" name="dest_id" class="form-control @error('dest_id') is-invalid @enderror" placeholder="{{ __('Destination ID') }}" required>
+                                <select class="form-control @error('dest_id') is-invalid @enderror" name="dest_id" placeholder="{{ __('Destination ID') }}" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
+                                    @foreach ($idName as $id)
+                                        <option value="{{ $id->id }}">{{ $id->id . " - " . $id->name }}</option>
+                                    @endforeach
+                                </select>
+
+
+                                {{-- <input type="number" name="dest_id" class="form-control @error('dest_id') is-invalid @enderror" placeholder="{{ __('Destination ID') }}" required> --}}
                             </div>
                             @error('dest_id')
                             <div class="form-group custom-control">
@@ -80,8 +85,7 @@
                 </div>
             </div>
         </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
 </div>
-<!-- /.content -->
+
 @endsection

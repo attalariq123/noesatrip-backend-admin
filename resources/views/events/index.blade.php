@@ -20,6 +20,7 @@
                 <table class="table table-borderless table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
+                            <th>#</th>
                             <th>Destination ID</th>
                             <th>Name</th>
                             <th>Description</th>
@@ -30,6 +31,7 @@
                     <tbody>
                         @foreach ($events as $eve)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $eve->destination_id }}</td>
                             <td>{{ $eve->name }}</td>
                             <td>{{ $eve->description }}</td>

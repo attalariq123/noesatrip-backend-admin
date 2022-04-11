@@ -13,9 +13,9 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
+        {{-- <div class="card-header py-3">
             <a href="#" class="btn btn-primary m-0 font-weight-bold">Add User</a>
-        </div>
+        </div> --}}
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-borderless table-striped table-hover" id="dataTable" width="100%" cellspacing="0">

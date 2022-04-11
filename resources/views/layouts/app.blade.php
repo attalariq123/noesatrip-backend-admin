@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>{{ config('app.name', 'NoesaTrip') }}</title>
-
+    
+    <title>{{ config('app.name', 'Noesatrip') }}</title>
+    <link rel="shorcut icon" href="{{asset('favicon.ico')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Custom fonts for this template-->
     <link href="{{ asset('css/fontawsome-free-all.min.css') }}" rel="stylesheet" type="text/css">

@@ -28,21 +28,21 @@
     </div>
 
     <!-- Nav Item - Users -->
-    <li class="nav-item @if(request()->routeIs('users.index')) active @endif">
+    <li class="nav-item @if(request()->routeIs('users.*')) active @endif">
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>{{ __('Users') }}</span></a>
     </li>
 
     <!-- Nav Item - Destinations -->
-    <li class="nav-item @if(request()->routeIs('destinations.index')) active @endif">
+    <li class="nav-item @if(request()->routeIs('destinations.*')) active @endif">
         <a class="nav-link" href="{{ route('destinations.index') }}">
             <i class="fas fa-fw fa-map-marker-alt"></i>
             <span>{{ __('Destinations') }}</span></a>
     </li>
 
     <!-- Nav Item - Events -->
-    <li class="nav-item @if(request()->routeIs('events.index')) active @endif">
+    <li class="nav-item @if(request()->routeIs('events.*')) active @endif">
         <a class="nav-link" href="{{ route('events.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>{{ __('Events') }}</span></a>

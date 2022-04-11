@@ -16,7 +16,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::paginate();
-        return view('events.index', compact('events'));
+        return view('menu.events.index', compact('events'));
     }
 
     /**
@@ -27,7 +27,7 @@ class EventController extends Controller
     public function create()
     {
         $idName = Destination::orderBy('id')->get();
-        return view('events.create', compact('idName'));
+        return view('menu.events.create', compact('idName'));
     }
 
     /**
@@ -45,7 +45,7 @@ class EventController extends Controller
             'duration' => $r->duration,
         ]);
 
-        return redirect()->route('events.index');
+        return redirect()->route('menu.events.index');
     }
 
     /**
@@ -70,7 +70,7 @@ class EventController extends Controller
         $event = Event::find($id);
         $idName = Destination::orderBy('id')->get();
 
-        return view('events.edit', compact('event', 'idName'));
+        return view('menu.events.edit', compact('event', 'idName'));
     }
 
     /**
@@ -89,7 +89,7 @@ class EventController extends Controller
             'duration' => $r->duration,
         ]);
 
-        return redirect()->route('events.index');
+        return redirect()->route('menu.events.index');
     }
 
     /**
@@ -104,6 +104,6 @@ class EventController extends Controller
 
         $event->delete();
 
-        return redirect()->route('events.index');
+        return redirect()->route('menu.events.index');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,6 @@ use App\Http\Controllers\EventController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
@@ -43,5 +40,6 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('destinations', DestinationController::class);
     Route::resource('events', EventController::class);
+    Route::resource('orders', OrderController::class);
 
 });

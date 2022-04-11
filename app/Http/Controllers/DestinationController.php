@@ -15,7 +15,7 @@ class DestinationController extends Controller
     public function index()
     {
         $destinations = Destination::paginate();
-        return view('destinations.index', compact('destinations'));
+        return view('menu.destinations.index', compact('destinations'));
     }
 
     /**
@@ -25,7 +25,7 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        return view('destinations.create');
+        return view('menu.destinations.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class DestinationController extends Controller
             'city' => $r->city,
         ]);
 
-        return redirect()->route('destinations.index');
+        return redirect()->route('menu.destinations.index');
     }
 
     /**
@@ -67,7 +67,7 @@ class DestinationController extends Controller
     public function edit($id)
     {
         $destination = Destination::find($id);
-        return view('destinations.edit', compact('destination'));
+        return view('menu.destinations.edit', compact('destination'));
     }
 
     /**
@@ -87,7 +87,7 @@ class DestinationController extends Controller
             'city' => $r->city,
         ]);
 
-        return redirect()->route('destinations.index');
+        return redirect()->route('menu.destinations.index');
     }
 
     /**
@@ -102,6 +102,6 @@ class DestinationController extends Controller
 
         $destination->delete();
 
-        return redirect()->route('destinations.index');
+        return redirect()->route('menu.destinations.index');
     }
 }

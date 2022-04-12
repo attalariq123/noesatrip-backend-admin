@@ -24,7 +24,6 @@
                             <th>Name</th>
                             <th>Email Address</th>
                             <th>Role</th>
-                            <th>Registration Date</th>
                     </thead>
                     <tbody>
                         @foreach($users as $user)
@@ -32,7 +31,6 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role }}</td>
-                            <td>{{ $user->created_at }}</td>
                         </tr>
                         @endforeach
                     </tbody>

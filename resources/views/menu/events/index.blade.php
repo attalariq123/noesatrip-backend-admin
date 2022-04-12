@@ -21,7 +21,7 @@
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>#</th>
-                            <th>Destination ID</th>
+                            <th>Dest ID</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Duration</th>

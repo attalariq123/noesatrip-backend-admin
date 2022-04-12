@@ -60,17 +60,11 @@
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Transactions -->
-    <li class="nav-item @if(request()->routeIs('transactions')) active @endif">
+    {{-- <li class="nav-item @if(request()->routeIs('transactions')) active @endif">
         <a class="nav-link" href="{{ route('transactions') }}">
             <i class="fas fa-fw fa-money-bill-alt"></i>
             <span>{{ __('Transactions') }}</span></a>
-    </li>
-
-    <li class="nav-item @if(request()->routeIs('settings')) active @endif">
-        <a class="nav-link" href="{{ route('settings') }}">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>{{ __('Settings') }}</span></a>
-    </li>
+    </li> --}}
 
     <li class="nav-item @if(request()->routeIs('logout')) active @endif">
         <a class="nav-link" href="{{ route('home') }}" data-toggle="modal" data-target="#logoutModal">

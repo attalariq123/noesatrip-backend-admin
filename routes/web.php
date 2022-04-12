@@ -27,9 +27,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function () {
 
     // TEST
-    Route::view('transactions', 'transactions')->name('transactions');
-    Route::view('settings', 'settings')->name('settings');
-    Route::view('logout', 'logout')->name('logout');
+    // Route::view('transactions', 'transactions')->name('transactions');
+    // Route::view('settings', 'settings')->name('settings');
+    // Route::view('logout', 'logout')->name('logout');
     // TEST
     
     Route::get('users', [UserController::class, 'index'])->name('users.index');

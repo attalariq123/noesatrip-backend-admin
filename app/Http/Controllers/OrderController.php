@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,7 +16,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::paginate();
+        return view('menu.orders.index', compact('orders'));
     }
 
     /**
@@ -23,7 +27,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $idUser = User::orderBy('id')->get();
+        $idDest = Destination::orderBy('id')->get();
+        return view('menu.orders.create', compact('idUser', 'idDest'));
     }
 
     /**
@@ -32,9 +38,21 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        $getPrice = Destination::select('price')->where('id', $r->dest_id)->get();
+        $totalPrice = (int)$getPrice[0]->price * $r->ticket_qty;
+
+        $order = Order::create([
+            'user_id' => $r->user_id,
+            'destination_id' => $r->dest_id,
+            'start_date' => $r->start_date,
+            'end_date' => $r->end_date,
+            'ticket_quantity' => $r->ticket_qty,
+            'total_amount' => $totalPrice,
+        ]);
+
+        return redirect()->route('orders.index');
     }
 
     /**
@@ -56,7 +74,8 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::find($id);
+        return view('menu.orders.edit', compact('order'));
     }
 
     /**
@@ -66,9 +85,20 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $r, Order $order)
     {
-        //
+        $getPrice = Destination::select('price')->where('id', $order->destination_id)->get();
+        $totalPrice = (int)$getPrice[0]->price * $r->ticket_qty;
+
+        $order = Order::where('id', $order->id)->update([
+            'start_date' => $r->start_date,
+            'end_date' => $r->end_date,
+            'ticket_quantity' => $r->ticket_qty,
+            'total_amount' => (String)$totalPrice,
+            'payment_status' => $r->payment_status,
+        ]);
+
+        return redirect()->route('orders.index');
     }
 
     /**
@@ -79,6 +109,10 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+
+        $order->delete();
+
+        return redirect()->route('orders.index');
     }
 }

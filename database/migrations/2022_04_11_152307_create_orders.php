@@ -21,7 +21,7 @@ class CreateOrders extends Migration
             $table->date('end_date');
             $table->integer('ticket_quantity');
             $table->string('total_amount');
-            $table->string('payment_status');
+            $table->enum('payment_status', ['pending', 'success'])->default('pending');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

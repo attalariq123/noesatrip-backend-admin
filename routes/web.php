@@ -27,7 +27,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function () {
 
     // TEST
-    Route::view('orders', 'orders')->name('orders');
     Route::view('transactions', 'transactions')->name('transactions');
     Route::view('settings', 'settings')->name('settings');
     Route::view('logout', 'logout')->name('logout');
@@ -41,5 +40,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('destinations', DestinationController::class);
     Route::resource('events', EventController::class);
     Route::resource('orders', OrderController::class);
-
 });

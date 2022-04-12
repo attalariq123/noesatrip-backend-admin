@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Destination;
-use App\Models\Event;
 use App\Models\User;
+use App\Models\Event;
+use App\Models\Order;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,6 +30,7 @@ class HomeController extends Controller
         $total_destinations = Destination::all()->count();
         $total_users = User::all()->count();
         $total_events = Event::all()->count();
-        return view('home', compact('total_destinations', 'total_users', 'total_events'));
+        $pending_orders = Order::where("payment_status", "pending")->count();
+        return view('home', compact('total_destinations', 'total_users', 'total_events', 'pending_orders'));
     }
 }

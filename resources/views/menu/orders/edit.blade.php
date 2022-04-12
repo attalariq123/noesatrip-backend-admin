@@ -85,35 +85,6 @@
                             </div>
                             @enderror
 
-                            {{-- <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Total Amount</span>
-                                </div>
-                                <input type="number" name="total_amount" class="form-control @error('total_amount') is-invalid @enderror" placeholder="{{ __('Total Amount') }}" value="$order->total_amount" disabled required>
-                            </div>
-                            @error('ticket_qty')
-                            <div class="form-group custom-control">
-                                <label class="">{{ $message }}</label>
-                            </div>
-                            @enderror --}}
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Payment Status</span>
-                                </div>
-                                <select class="form-control @error('payment_status') is-invalid @enderror" name="payment_status" required>
-                                        <option value="pending">Pending</option>
-                                        <option value="success">Success</option>
-                                </select>
-                            </div>
-                            @error('payment_status')
-                            <div class="form-group custom-control">
-                                <label class="">{{ $message }}</label>
-                            </div>
-                            @enderror
-
-
-
                         </div>
 
                         <div class="card-footer">

@@ -27,7 +27,7 @@
                             <th>End Date</th>
                             <th>Ticket Qty</th>
                             <th>Total Amount</th>
-                            <th>Status</th>
+                            <th>Payment Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,7 +41,14 @@
                             <td>{{ $ord->end_date }}</td>
                             <td>{{ $ord->ticket_quantity }}</td>
                             <td>{{ $ord->total_amount }}</td>
-                            <td>{{ $ord->payment_status }}</td>
+                            <td>{{ $ord->payment_status . " "}} 
+                                @if ($ord->payment_status == 'success')
+                                <i style="color: #3252DF" class="fas fa-check-circle"></i>
+                                @else
+                                <i style="color: #f01818" class="fas fa-times-circle"></i>
+                                @endif
+                            </td>
+                                
                             <td>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,10 +70,19 @@
                                             </button>
                                         </form>
 
-                                        <a class="dropdown-item" href="#">
-                                            <i class="fas fa-eye fa-sm fa-fw mr-2 text-gray-600"></i>
-                                            Show
-                                        </a>
+                                        @if ($ord->payment_status == 'pending')
+                                        <form action="{{ route('orders.status', $ord->id) }}" method="post">
+                                            @csrf
+                                            @method('post')
+                                            
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="fas fa-check-circle fa-sm fa-fw mr-2 text-gray-600"></i>
+                                                Change Status to Success
+                                            </button>
+                                            
+                                        </form> 
+                                        @endif
+                                        
                                     </div>
                                 </div>
                             </td>

@@ -95,7 +95,7 @@ class OrderController extends Controller
             'end_date' => $r->end_date,
             'ticket_quantity' => $r->ticket_qty,
             'total_amount' => (String)$totalPrice,
-            'payment_status' => $r->payment_status,
+            'payment_status' => $order->payment_status,
         ]);
 
         return redirect()->route('orders.index');
@@ -115,4 +115,20 @@ class OrderController extends Controller
 
         return redirect()->route('orders.index');
     }
+
+    public function status($id)
+    {
+        $orderObject = Order::find($id);
+        
+        $order = Order::where('id', $id)->update([
+            'start_date' => $orderObject->start_date,
+            'end_date' => $orderObject->end_date,
+            'ticket_quantity' => $orderObject->ticket_quantity,
+            'total_amount' => $orderObject->total_amount,
+            'payment_status' => "success",
+        ]);
+        
+        return redirect()->route('orders.index');
+    }
+
 }

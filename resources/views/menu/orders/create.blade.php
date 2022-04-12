@@ -50,7 +50,6 @@
                                         <option value="{{ $dest->id }}">{{ $dest->id . " - " . $dest->name }}</option>
                                     @endforeach
                                 </select>
-                                {{-- <input type="number" name="dest_id" class="form-control @error('dest_id') is-invalid @enderror" placeholder="{{ __('Destination ID') }}" required> --}}
                             </div>
                             @error('dest_id')
                             <div class="form-group custom-control">

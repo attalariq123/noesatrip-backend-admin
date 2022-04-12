@@ -39,5 +39,7 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('destinations', DestinationController::class);
     Route::resource('events', EventController::class);
+
+    Route::any('orders/status/{order}', [OrderController::class, 'status'])->name('orders.status');
     Route::resource('orders', OrderController::class);
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Destination;
 use App\Models\Order;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -119,6 +120,12 @@ class OrderController extends Controller
     public function status($id)
     {
         $orderObject = Order::find($id);
+
+        $transaction = Transaction::create([
+            'user_id' => $orderObject->user_id,
+            'confirmation_date' => now()->format('Y-m-d'),
+            'total' => $orderObject->total_amount,
+        ]);
         
         $order = Order::where('id', $id)->update([
             'start_date' => $orderObject->start_date,

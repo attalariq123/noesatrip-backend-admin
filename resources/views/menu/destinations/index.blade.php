@@ -38,7 +38,7 @@
                             <td>{{ $des->kode }}</td>
                             <td>{{ $des->name }}</td>
                             <td class="d-inline-block text-truncate" style="max-width: 300px;">{{ $des->description }}</td>
-                            <td>{{ $des->price }}</td>
+                            <td>{{$des->price . ',00'}}</td>
                             <td>{{ $des->city }}</td>
                             {{-- <td>{{ $des->overall_rating }}</td>
                             <td>{{ $des->total_review }}</td> --}}

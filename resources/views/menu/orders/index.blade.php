@@ -40,7 +40,7 @@
                             <td>{{ $ord->start_date }}</td>
                             <td>{{ $ord->end_date }}</td>
                             <td>{{ $ord->ticket_quantity }}</td>
-                            <td>{{ 'Rp' . $ord->total_amount . ',00' }}</td>
+                            <td>{{ $ord->total_amount . ',00' }}</td>
                             <td>{{ $ord->payment_status . " "}} 
                                 @if ($ord->payment_status == 'success')
                                 <i style="color: #3252DF" class="fas fa-check-circle"></i>

@@ -32,7 +32,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $trans->user_id }}</td>
                             <td>{{ $trans->confirmation_date }}</td>
-                            <td>{{'Rp' . $trans->total . ',00'}}</td>
+                            <td>{{ $trans->total . ',00'}}</td>
                         </tr>
                         @endforeach
                     </tbody>

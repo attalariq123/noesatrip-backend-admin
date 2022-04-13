@@ -2114,11 +2114,11 @@ fieldset:disabled a.btn {
 	color: #fff;
 	background-color: #3366cc;
 	border-color: #3366cc;
-	transition: all 0.2s ease-in;
+	transition: all 0.15s ease-in;
 }
 .btn-primary:hover {
 	transform: scale(1.05, 1.05);
-	transition: all 0.2s ease-out;
+	transition: all 0.15s ease-out;
 	color: #fff;
 	background-color: #3252df;
 	border-color: #2653d4;
@@ -2149,14 +2149,14 @@ fieldset:disabled a.btn {
 	color: #fff;
 	background-color: #858796;
 	border-color: #858796;
-	transition: all 0.2s ease-in;
+	transition: all 0.15s ease-in;
 }
 .btn-secondary:hover {
 	color: #fff;
 	background-color: #717384;
 	border-color: #6b6d7d;
 	transform: scale(1.05, 1.05);
-	transition: all 0.2s ease-out;
+	transition: all 0.15s ease-out;
 }
 .btn-secondary.focus,
 .btn-secondary:focus {
@@ -2184,14 +2184,14 @@ fieldset:disabled a.btn {
 	color: #fff;
 	background-color: #1cc88a;
 	border-color: #1cc88a;
-	transition: all 0.2s ease-in;
+	transition: all 0.15s ease-in;
 }
 .btn-success:hover {
 	color: #fff;
 	background-color: #17a673;
 	border-color: #169b6b;
 	transform: scale(1.05, 1.05);
-	transition: all 0.2s ease-out;
+	transition: all 0.15s ease-out;
 }
 .btn-success.focus,
 .btn-success:focus {
@@ -2219,14 +2219,14 @@ fieldset:disabled a.btn {
 	color: #fff;
 	background-color: #36b9cc;
 	border-color: #36b9cc;
-	transition: all 0.2s ease-in;
+	transition: all 0.15s ease-in;
 }
 .btn-info:hover {
 	color: #fff;
 	background-color: #2c9faf;
 	border-color: #2a96a5;
 	transform: scale(1.05, 1.05);
-	transition: all 0.2s ease-out;
+	transition: all 0.15s ease-out;
 }
 .btn-info.focus,
 .btn-info:focus {

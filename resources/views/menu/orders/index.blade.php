@@ -31,7 +31,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-dark">
                         @foreach ($orders as $ord)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -43,9 +43,9 @@
                             <td>{{ $ord->total_amount . ',00' }}</td>
                             <td>{{ $ord->payment_status . " "}} 
                                 @if ($ord->payment_status == 'success')
-                                <i style="color: #3252DF" class="fas fa-check-circle"></i>
+                                <i class="fas fa-check-circle text-primary"></i>
                                 @else
-                                <i style="color: #f01818" class="fas fa-times-circle"></i>
+                                <i class="fas fa-times-circle text-warning"></i>
                                 @endif
                             </td>
                                 

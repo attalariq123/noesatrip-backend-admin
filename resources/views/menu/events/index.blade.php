@@ -28,7 +28,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-dark">
                         @foreach ($events as $eve)
                         <tr>
                             <td>{{ $loop->iteration }}</td>

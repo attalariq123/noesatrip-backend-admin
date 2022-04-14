@@ -25,7 +25,7 @@
                             <th>Email Address</th>
                             <th>Role</th>
                     </thead>
-                    <tbody>
+                    <tbody class="text-dark">
                         @foreach($users as $user)
                         <tr>
                             <td>{{ $user->name }}</td>

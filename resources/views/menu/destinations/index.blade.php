@@ -17,7 +17,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-borderless table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-borderless table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>#</th>
@@ -27,18 +27,16 @@
                             <th>Description</th>
                             <th>Price</th>
                             <th>City</th>
-                            {{-- <th>Rating</th>
-                            <th>Total Review</th> --}}
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-dark">
                         @foreach ($destinations as $des)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
                                 @if ($des->image_path != null)
-                                <img class="rounded-corners mx-auto d-block" src="{{ asset('storage/' . $des->image_path) }}" style="width: 80px; width: 80px; border-radius: 10%">
+                                <img class="rounded-corners mx-auto d-block" src="{{ asset('storage/' . $des->image_path) }}" style="width: 120px; height: 90px; border-radius: 10%">
                                 @else
                                     No Image
                                 @endif
@@ -48,8 +46,6 @@
                             <td class="d-inline-block text-truncate" style="max-width: 300px;">{{ $des->description }}</td>
                             <td>{{$des->price . ',00'}}</td>
                             <td>{{ $des->city }}</td>
-                            {{-- <td>{{ $des->overall_rating }}</td>
-                            <td>{{ $des->total_review }}</td> --}}
                             <td>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

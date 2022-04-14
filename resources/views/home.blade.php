@@ -35,7 +35,7 @@
     <div class="row">
 
         <div class="board-item col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card border-bottom-primary border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <a href="{{ route('destinations.index') }}">
                         <span class="link"></span>
@@ -46,7 +46,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_destinations}}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-map-marked-alt fa-2x text-gray-400"></i>
+                            <i class="fas fa-map-marked-alt fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="board-item col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
+            <div class="card border-left-success border-bottom-success shadow h-100 py-2">
                 <div class="card-body">
                     <a href="{{ route('users.index') }}">
                         <span class="link"></span>
@@ -65,7 +65,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_users }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-400"></i>
+                            <i class="fas fa-users fa-2x text-success"></i>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="board-item col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card border-left-danger border-bottom-danger shadow h-100 py-2">
                 <div class="card-body">
                     <a href="{{ route('events.index') }}">
                         <span class="link"></span>
@@ -84,7 +84,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_events }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar-alt fa-2x text-gray-400"></i>
+                            <i class="fas fa-calendar-alt fa-2x text-danger"></i>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="board-item col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card border-left-warning border-bottom-warning shadow h-100 py-2">
                 <div class="card-body">
                     <a href="{{ route('orders.index') }}">
                         <span class="link"></span>
@@ -103,7 +103,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pending_orders }}</div>
                         </div>
                         <div class="col-auto">  
-                            <i class="fas fa-shopping-cart fa-2x text-gray-400"></i>
+                            <i class="fas fa-shopping-cart fa-2x text-warning"></i>
                         </div>
                     </div>
                 </div>

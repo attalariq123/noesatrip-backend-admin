@@ -26,7 +26,7 @@
                             <th>Total</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-dark">
                         @foreach ($transactions as $trans)
                         <tr>
                             <td>{{ $loop->iteration }}</td>

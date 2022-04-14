@@ -25,6 +25,8 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::post('/upload', [FileController::class, 'upload']);
+
 Route::middleware('auth')->group(function () {
     
     Route::get('users', [UserController::class, 'index'])->name('users.index');

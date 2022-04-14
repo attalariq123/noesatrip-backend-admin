@@ -21,6 +21,7 @@
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>#</th>
+                            <th>Image</th>
                             <th>Code</th>
                             <th>Name</th>
                             <th>Description</th>
@@ -35,6 +36,13 @@
                         @foreach ($destinations as $des)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
+                            <td>
+                                @if ($des->image_path != null)
+                                <img class="rounded-corners mx-auto d-block" src="{{ asset('storage/' . $des->image_path) }}" style="width: 80px; width: 80px; border-radius: 10%">
+                                @else
+                                    No Image
+                                @endif
+                            </td>
                             <td>{{ $des->kode }}</td>
                             <td>{{ $des->name }}</td>
                             <td class="d-inline-block text-truncate" style="max-width: 300px;">{{ $des->description }}</td>

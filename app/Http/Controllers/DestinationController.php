@@ -36,12 +36,20 @@ class DestinationController extends Controller
      */
     public function store(Request $r)
     {
+        $file = $r->hasFile('thumbnail');
+        if ($file) {
+            $new_file = $r->file('thumbnail');
+            $file_path = $new_file->store('destination_img', 'public');
+            // dd(asset('/storage/'.$file_path));
+        }
+
         $destination = Destination::create([
             'kode' => $r->code,
             'name' => $r->name,
             'description' => $r->description,
             'price' => $r->price,
             'city' => $r->city,
+            'image_path' => $file_path,
         ]);
 
         return redirect()->route('destinations.index');
@@ -79,12 +87,19 @@ class DestinationController extends Controller
      */
     public function update(Request $r, $id)
     {
+        $file = $r->hasFile('thumbnail');
+        if ($file) {
+            $new_file = $r->file('thumbnail');
+            $file_path = $new_file->store('destination_img', 'public');
+        }
+
         $destination = Destination::where('id', $id)->update([
             'kode' => $r->code,
             'name' => $r->name,
             'description' => $r->description,
             'price' => $r->price,
             'city' => $r->city,
+            'image_path' => $file_path,
         ]);
 
         return redirect()->route('destinations.index');

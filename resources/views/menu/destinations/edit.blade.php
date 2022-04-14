@@ -19,7 +19,7 @@
 
                 <div class="card">
 
-                    <form action="{{ route('destinations.update', $destination->id) }}" method="POST">
+                    <form action="{{ route('destinations.update', $destination->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -80,6 +80,21 @@
                                 <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="{{ __('City') }}" value="{{ $destination->city }}" required>
                             </div>
                             @error('city')
+                            <div class="form-group custom-control">
+                                <label class="">{{ $message }}</label>
+                            </div>
+                            @enderror
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">Image</span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" name="thumbnail" class="custom-file-input @error('image') is-invalid @enderror" required>
+                                  <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            @error('image')
                             <div class="form-group custom-control">
                                 <label class="">{{ $message }}</label>
                             </div>

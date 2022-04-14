@@ -19,6 +19,7 @@ class Destination extends Model
         'description',
         'price',
         'city',
+        'image_path',
         'overall_rating',
         'total_review',
     ];

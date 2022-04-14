@@ -19,7 +19,7 @@
 
                 <div class="card">
 
-                    <form action="{{ route('destinations.store') }}" method="POST">
+                    <form action="{{ route('destinations.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="card-body col-lg-8">
@@ -63,6 +63,7 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Price</span>
+                                    <span class="input-group-text">Rp</span>
                                 </div>
                                 <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('Price, ex: 99000') }}" required>
                             </div>
@@ -79,6 +80,21 @@
                                 <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="{{ __('City') }}" required>
                             </div>
                             @error('city')
+                            <div class="form-group custom-control">
+                                <label class="">{{ $message }}</label>
+                            </div>
+                            @enderror
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">Image</span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" name="thumbnail" class="custom-file-input @error('image') is-invalid @enderror" required>
+                                  <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            @error('image')
                             <div class="form-group custom-control">
                                 <label class="">{{ $message }}</label>
                             </div>

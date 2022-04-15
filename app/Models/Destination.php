@@ -23,4 +23,9 @@ class Destination extends Model
         'overall_rating',
         'total_review',
     ];
+
+    public function events()
+    {
+        return $this->hasMany('App\Models\Event');
+    }
 }

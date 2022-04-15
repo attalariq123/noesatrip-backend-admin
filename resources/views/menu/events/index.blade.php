@@ -21,7 +21,7 @@
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>#</th>
-                            <th>Dest ID</th>
+                            <th>Destination</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Duration</th>
@@ -32,7 +32,7 @@
                         @foreach ($events as $eve)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $eve->destination_id }}</td>
+                            <td>{{ $eve->destination->name }}</td>
                             <td>{{ $eve->name }}</td>
                             <td>{{ $eve->description }}</td>
                             <td>{{ $eve->duration }} minutes</td>

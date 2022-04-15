@@ -27,14 +27,14 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Destination ID</span>
+                                    <span class="input-group-text">Destination</span>
                                 </div>
                                 <select class="form-control @error('dest_id') is-invalid @enderror" name="dest_id" placeholder="{{ __('Destination ID') }}" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
-                                    <option value="{{$event->destination_id}}">{{ $event->destination_id . " - " . $destName[0]->name }}
+                                    <option value="{{$event->destination_id}}">{{ $event->destination->name }}
                                     </option>
 
-                                    @foreach ($idName as $id)
-                                        <option value="{{ $id->id }}">{{ $id->id . " - " . $id->name }}</option>
+                                    @foreach ($destOption as $dest)
+                                        <option value="{{ $dest->id }}">{{ $dest->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

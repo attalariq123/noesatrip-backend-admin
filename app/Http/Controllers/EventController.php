@@ -26,8 +26,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        $idName = Destination::orderBy('id')->get();
-        return view('menu.events.create', compact('idName'));
+        $destOption = Destination::orderBy('id')->get();
+        return view('menu.events.create', compact('destOption'));
     }
 
     /**
@@ -68,10 +68,9 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        $destName = Destination::select('name')->where('id', $event->destination_id)->get();
-        $idName = Destination::orderBy('id')->get();
+        $destOption = Destination::orderBy('id')->get();
 
-        return view('menu.events.edit', compact('event', 'idName', 'destName'));
+        return view('menu.events.edit', compact('event', 'destOption'));
     }
 
     /**

@@ -17,4 +17,9 @@ class Event extends Model
         'description',
         'duration',
     ];
+
+    public function destination() 
+    {
+        return $this->belongsTo('App\Models\Destination');
+    }
 }

@@ -68,9 +68,10 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
+        $destName = Destination::select('name')->where('id', $event->destination_id)->get();
         $idName = Destination::orderBy('id')->get();
 
-        return view('menu.events.edit', compact('event', 'idName'));
+        return view('menu.events.edit', compact('event', 'idName', 'destName'));
     }
 
     /**

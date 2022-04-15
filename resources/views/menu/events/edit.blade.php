@@ -30,11 +30,13 @@
                                     <span class="input-group-text">Destination ID</span>
                                 </div>
                                 <select class="form-control @error('dest_id') is-invalid @enderror" name="dest_id" placeholder="{{ __('Destination ID') }}" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
+                                    <option value="{{$event->destination_id}}">{{ $event->destination_id . " - " . $destName[0]->name }}
+                                    </option>
+
                                     @foreach ($idName as $id)
                                         <option value="{{ $id->id }}">{{ $id->id . " - " . $id->name }}</option>
                                     @endforeach
                                 </select>
-                                {{-- <input type="number" name="dest_id" class="form-control @error('dest_id') is-invalid @enderror" placeholder="{{ __('Destination ID') }}" value="{{ $event->destination_id }}" required> --}}
                             </div>
                             @error('dest_id')
                             <div class="form-group custom-control">

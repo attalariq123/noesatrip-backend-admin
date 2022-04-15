@@ -25,8 +25,6 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::post('/upload', [FileController::class, 'upload']);
-
 Route::middleware('auth')->group(function () {
     
     Route::get('users', [UserController::class, 'index'])->name('users.index');
@@ -35,9 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     
     Route::resource('destinations', DestinationController::class);
-
+    
     Route::resource('events', EventController::class);
-
+    
     Route::any('orders/status/{order}', [OrderController::class, 'status'])->name('orders.status');
     Route::resource('orders', OrderController::class);
 

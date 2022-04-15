@@ -21,8 +21,8 @@
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>#</th>
-                            <th>User ID</th>
-                            <th>Dest ID</th>
+                            <th>User</th>
+                            <th>Destination</th>
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Ticket Qty</th>
@@ -35,8 +35,8 @@
                         @foreach ($orders as $ord)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $ord->user_id }}</td>
-                            <td>{{ $ord->destination_id }}</td>
+                            <td>{{ $ord->user->name }}</td>
+                            <td>{{ $ord->destination->name }}</td>
                             <td>{{ $ord->start_date }}</td>
                             <td>{{ $ord->end_date }}</td>
                             <td>{{ $ord->ticket_quantity }}</td>

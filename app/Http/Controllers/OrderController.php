@@ -28,9 +28,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $idUser = User::orderBy('id')->get();
-        $idDest = Destination::orderBy('id')->get();
-        return view('menu.orders.create', compact('idUser', 'idDest'));
+        $userOption = User::orderBy('id')->get();
+        $destOption = Destination::orderBy('id')->get();
+        return view('menu.orders.create', compact('userOption', 'destOption'));
     }
 
     /**
@@ -96,7 +96,7 @@ class OrderController extends Controller
             'end_date' => $r->end_date,
             'ticket_quantity' => $r->ticket_qty,
             'total_amount' => (String)$totalPrice,
-            'payment_status' => $order->payment_status,
+            'payment_status' => "pending",
         ]);
 
         return redirect()->route('orders.index');

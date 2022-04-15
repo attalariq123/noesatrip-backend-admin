@@ -27,9 +27,9 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">User ID</span>
+                                    <span class="input-group-text">User</span>
                                 </div>
-                                <input type="number" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{$order->user_id}}" disabled required>
+                                <input type="text" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{$order->user->name}}" disabled required>
                             </div>
                             @error('user_id')
                             <div class="form-group custom-control">
@@ -39,9 +39,9 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Destination ID</span>
+                                    <span class="input-group-text">Destination</span>
                                 </div>
-                                <input type="number" name="dest_id" class="form-control @error('dest_id') is-invalid @enderror" value="{{$order->destination_id}}" disabled required>
+                                <input type="text" name="dest_id" class="form-control @error('dest_id') is-invalid @enderror" value="{{$order->destination->name}}" disabled required>
                             </div>
                             @error('dest_id')
                             <div class="form-group custom-control">

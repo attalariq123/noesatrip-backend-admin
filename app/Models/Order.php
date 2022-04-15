@@ -20,4 +20,14 @@ class Order extends Model
         'total_amount',
         'payment_status',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function destination()
+    {
+        return $this->belongsTo('App\Models\Destination');
+    }
 }

@@ -27,6 +27,7 @@
                                     <span class="input-group-text">Destination</span>
                                 </div>
                                 <select class="form-control @error('dest_id') is-invalid @enderror" name="dest_id" placeholder="{{ __('Destination ID') }}" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
+                                    <option value="">--Select Destination--</option>
                                     @foreach ($destOption as $dest)
                                         <option value="{{ $dest->id }}">{{ $dest->name }}</option>
                                     @endforeach

@@ -26,14 +26,14 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">User ID</span>
+                                    <span class="input-group-text">User</span>
                                 </div>
                                 <select class="form-control @error('user_id') is-invalid @enderror" name="user_id" placeholder="{{ __('User ID') }}" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
-                                    @foreach ($idUser as $user)
-                                        <option value="{{ $user->id }}">{{ $user->id . " - " . $user->name }}</option>
+                                    <option value="">--Select User--</option>
+                                    @foreach ($userOption as $user)
+                                        <option value="{{ $user->id }}">{{  $user->name }}</option>
                                     @endforeach
                                 </select>
-                                {{-- <input type="number" name="user_id" class="form-control @error('user_id') is-invalid @enderror" placeholder="{{ __('User ID') }}" required> --}}
                             </div>
                             @error('user_id')
                             <div class="form-group custom-control">
@@ -43,11 +43,12 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Destination ID</span>
+                                    <span class="input-group-text">Destination</span>
                                 </div>
                                 <select class="form-control @error('dest_id') is-invalid @enderror" name="dest_id" placeholder="{{ __('Destination ID') }}" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
-                                    @foreach ($idDest as $dest)
-                                        <option value="{{ $dest->id }}">{{ $dest->id . " - " . $dest->name }}</option>
+                                    <option value="">--Select Destination--</option>
+                                    @foreach ($destOption as $dest)
+                                        <option value="{{ $dest->id }}">{{ $dest->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

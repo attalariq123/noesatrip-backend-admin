@@ -16,4 +16,9 @@ class Transaction extends Model
         'confirmation_date',
         'total',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

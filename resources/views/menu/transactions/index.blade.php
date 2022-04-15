@@ -21,7 +21,7 @@
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>#</th>
-                            <th>User ID</th>
+                            <th>User</th>
                             <th>Confirmation Date</th>
                             <th>Total</th>
                         </tr>
@@ -30,7 +30,7 @@
                         @foreach ($transactions as $trans)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $trans->user_id }}</td>
+                            <td>{{ $trans->user->name }}</td>
                             <td>{{ $trans->confirmation_date }}</td>
                             <td>{{ $trans->total . ',00'}}</td>
                         </tr>

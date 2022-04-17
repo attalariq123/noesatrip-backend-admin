@@ -1,0 +1,4 @@
+- Muhammad Attalariq: menu destinasi, menu order, dan dashboard
+- Fanji Aburizal: menu events
+- Fauzi Hazim: menu users
+- Irgi Aditya: menu transactions

@@ -36,7 +36,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>
                                 @if ($des->image_path != null)
-                                <img class="rounded-corners mx-auto d-block" src="{{ asset('storage/' . $des->image_path) }}" style="width: 120px; height: 90px; border-radius: 10%">
+                                <img class="rounded-corners mx-auto d-block" src="{{$des->image_path}}" style="width: 120px; height: 90px; border-radius: 10%">
                                 @else
                                     No Image
                                 @endif

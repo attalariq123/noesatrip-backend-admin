@@ -49,7 +49,7 @@ class DestinationController extends Controller
             'description' => $r->description,
             'price' => $r->price,
             'city' => $r->city,
-            'image_path' => $file_path,
+            'image_path' => "http://localhost:8000/storage/$file_path",
         ]);
 
         return redirect()->route('destinations.index');

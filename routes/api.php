@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Destination;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Public Route
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/destinations', [DestinationController::class, 'getAllDestination']);
+Route::get('/destinations/{id}', [DestinationController::class, 'showDestinationbyId']);
 
-Route::get('/destinations', function() {
-    return Destination::all();
+// Protected Route
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/destinations/search/{name}', [DestinationController::class, 'searchDestination']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });

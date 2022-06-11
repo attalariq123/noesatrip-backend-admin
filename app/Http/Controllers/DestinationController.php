@@ -119,4 +119,37 @@ class DestinationController extends Controller
 
         return redirect()->route('destinations.index');
     }
+
+    /**
+     * Get all destination data
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllDestination()
+    {
+        return Destination::all();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  str  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function searchDestination($name)
+    {
+        return Destination::where('name', 'like', '%'.$name.'%')->get();
+    }
+
+    /**
+     * Display the specified destination.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showDestinationbyId($id)
+    {
+        return Destination::find($id);
+    }
+
 }

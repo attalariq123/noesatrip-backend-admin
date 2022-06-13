@@ -10,6 +10,9 @@ class AuthController extends Controller
 {
     public function register(Request $r)
     {
+        $r->headers->set('Accept', 'application/json');
+        $r->headers->set('Content-Type', 'application/json');
+
         $fields = $r->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -34,6 +37,9 @@ class AuthController extends Controller
     
     public function login(Request $r)
     {
+        $r->headers->set('Accept', 'application/json');
+        $r->headers->set('Content-Type', 'application/json');
+
         $fields = $r->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string', 'min:8'],
@@ -43,7 +49,7 @@ class AuthController extends Controller
 
         if(!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
-                'message' => 'Bad Credentials'
+                'message' => 'Invalid Email or Password'
             ], 401);
         }
 
@@ -59,6 +65,9 @@ class AuthController extends Controller
     
     public function logout(Request $r)
     {
+        $r->headers->set('Accept', 'application/json');
+        $r->headers->set('Content-Type', 'application/json');
+        
         auth()->user()->tokens()->delete();
 
         return [

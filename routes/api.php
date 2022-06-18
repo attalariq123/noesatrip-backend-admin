@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +26,15 @@ Route::get('/destinations/{id}', [DestinationController::class, 'showDestination
 
 // Protected Route
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
     Route::get('/destinations/search/{name}', [DestinationController::class, 'searchDestination']);
+
+    Route::get('/orders', [OrderController::class, 'getUserOrder']);
+
+    Route::get('/favorite', [FavoriteController::class, 'getFavoriteDestination']);
+    Route::get('/favorite-status/{user_id}', [FavoriteController::class, 'getFavoriteStatus']);
+    Route::put('/favorite-status/{user_id}/{destination_id}', [FavoriteController::class, 'changeStatus']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
+
 });

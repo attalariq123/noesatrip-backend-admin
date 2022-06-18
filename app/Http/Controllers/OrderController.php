@@ -138,4 +138,18 @@ class OrderController extends Controller
         return redirect()->route('orders.index');
     }
 
+
+    /**
+     * Display the user orders.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getUserOrder()
+    {
+        $user = User::find(auth()->user()->id);
+        $orders = $user->orders()->get();
+
+        return $orders;
+    }
+
 }

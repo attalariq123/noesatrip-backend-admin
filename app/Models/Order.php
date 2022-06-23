@@ -15,7 +15,7 @@ class Order extends Model
         'user_id',
         'destination_id',
         'start_date',
-        'end_date',
+        'duration',
         'ticket_quantity',
         'total_amount',
         'payment_status',

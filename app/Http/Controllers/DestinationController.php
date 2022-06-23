@@ -99,7 +99,7 @@ class DestinationController extends Controller
             'description' => $r->description,
             'price' => $r->price,
             'city' => $r->city,
-            'image_path' => $file_path,
+            'image_path' => "http://localhost:8000/storage/$file_path",
         ]);
 
         return redirect()->route('destinations.index');
@@ -138,7 +138,7 @@ class DestinationController extends Controller
      */
     public function searchDestination($name)
     {
-        return Destination::where('name', 'like', '%'.$name.'%')->get();
+        return Destination::where('name', 'like', '%' . $name . '%')->get();
     }
 
     /**
@@ -151,5 +151,4 @@ class DestinationController extends Controller
     {
         return Destination::find($id);
     }
-
 }

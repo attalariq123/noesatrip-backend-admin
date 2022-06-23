@@ -48,7 +48,7 @@ class OrderController extends Controller
             'user_id' => $r->user_id,
             'destination_id' => $r->dest_id,
             'start_date' => $r->start_date,
-            'end_date' => $r->end_date,
+            'duration' => $r->duration,
             'ticket_quantity' => $r->ticket_qty,
             'total_amount' => $totalPrice,
         ]);
@@ -93,9 +93,9 @@ class OrderController extends Controller
 
         $order = Order::where('id', $order->id)->update([
             'start_date' => $r->start_date,
-            'end_date' => $r->end_date,
+            'duration' => $r->duration,
             'ticket_quantity' => $r->ticket_qty,
-            'total_amount' => (String)$totalPrice,
+            'total_amount' => (string)$totalPrice,
             'payment_status' => "pending",
         ]);
 
@@ -126,7 +126,7 @@ class OrderController extends Controller
             'confirmation_date' => now()->format('Y-m-d'),
             'total' => $orderObject->total_amount,
         ]);
-        
+
         $order = Order::where('id', $id)->update([
             'start_date' => $orderObject->start_date,
             'end_date' => $orderObject->end_date,
@@ -134,7 +134,7 @@ class OrderController extends Controller
             'total_amount' => $orderObject->total_amount,
             'payment_status' => "success",
         ]);
-        
+
         return redirect()->route('orders.index');
     }
 
@@ -151,5 +151,4 @@ class OrderController extends Controller
 
         return $orders;
     }
-
 }

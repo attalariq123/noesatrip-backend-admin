@@ -18,7 +18,7 @@ class CreateOrders extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('destination_id');
             $table->date('start_date');
-            $table->date('end_date');
+            $table->integer('duration');
             $table->integer('ticket_quantity');
             $table->string('total_amount');
             $table->enum('payment_status', ['pending', 'success'])->default('pending');

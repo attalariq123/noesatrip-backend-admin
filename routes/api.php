@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/favorite-status/{user_id}', [FavoriteController::class, 'getFavoriteStatus']);
     Route::put('/favorite-status/{user_id}/{destination_id}', [FavoriteController::class, 'changeStatus']);
 
-    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/update-profile', [AuthController::class, 'updateProfile']);
 
+    Route::post('/logout', [AuthController::class, 'logout']);
 });

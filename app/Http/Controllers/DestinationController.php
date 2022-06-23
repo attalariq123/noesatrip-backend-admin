@@ -138,7 +138,7 @@ class DestinationController extends Controller
      */
     public function searchDestination($name)
     {
-        return Destination::where('name', 'like', '%'.$name.'%')->get();
+        return Destination::where('name', 'like', '%' . $name . '%')->get();
     }
 
     /**
@@ -151,5 +151,4 @@ class DestinationController extends Controller
     {
         return Destination::find($id);
     }
-
 }

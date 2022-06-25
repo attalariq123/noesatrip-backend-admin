@@ -29,13 +29,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/destinations/search/{name}', [DestinationController::class, 'searchDestination']);
 
-    Route::get('/orders', [OrderController::class, 'getUserOrder']);
+    Route::get('/orders/{user_id}', [OrderController::class, 'getUserOrder']);
+    Route::post('/orders', [OrderController::class, 'createUserOrder']);
 
     Route::get('/favorite', [FavoriteController::class, 'getFavoriteDestination']);
     Route::get('/favorite-status/{user_id}', [FavoriteController::class, 'getFavoriteStatus']);
     Route::put('/favorite-status/{user_id}/{destination_id}', [FavoriteController::class, 'changeStatus']);
 
-    Route::post('/update-profile', [AuthController::class, 'updateProfile']);
+    Route::post('/update-profile/{user_id}', [AuthController::class, 'updateProfile']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

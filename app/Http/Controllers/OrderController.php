@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Whoops\Run;
 
 class OrderController extends Controller
 {
@@ -138,17 +139,30 @@ class OrderController extends Controller
         return redirect()->route('orders.index');
     }
 
-
-    /**
-     * Display the user orders.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getUserOrder()
+    public function getUserOrder(Request $r)
     {
-        $user = User::find(auth()->user()->id);
-        $orders = $user->orders()->get();
+        $user = User::find($r->user_id);
+        $orders = Order::where('user_id', $user->id)->get();
 
         return $orders;
+    }
+
+    public function createUserOrder(Request $r)
+    {
+        $r->headers->set('Accept', 'application/json');
+        $r->headers->set('Content-Type', 'application/json');
+
+        $order = Order::create([
+            'user_id' => $r->user_id,
+            'destination_id' => $r->destination_id,
+            'start_date' => $r->start_date,
+            'duration' => $r->duration,
+            'ticket_quantity' => $r->ticket_quantity,
+            'total_amount' => $r->total_amount,
+        ]);
+
+        $response = ['message' => 'Create order success'];
+
+        return response($response, 201);
     }
 }

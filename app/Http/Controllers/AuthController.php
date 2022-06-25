@@ -81,7 +81,7 @@ class AuthController extends Controller
         $r->headers->set('Accept', 'application/json');
         $r->headers->set('Content-Type', 'application/json');
 
-        $user = User::where('id', auth()->user()->id)->update([
+        $user = User::where('id', $r->user_id)->update([
             'name' => !$r->name ? auth()->user()->name : $r->name,
             'email' => !$r->email ? auth()->user()->email : $r->email,
             'password' => !$r->password ? auth()->user()->password : bcrypt($r->password)

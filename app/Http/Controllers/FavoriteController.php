@@ -22,7 +22,7 @@ class FavoriteController extends Controller
 
         $dest = [];
         foreach ($fav as $f) {
-            if ($f['isFavorite'] == 1){
+            if ($f['isFavorite'] == 1) {
                 array_push($dest, Destination::find($f['destination_id']));
             }
         }
@@ -37,18 +37,17 @@ class FavoriteController extends Controller
         $fav = $user->favorite()->get();
 
         $data = [];
-        foreach ($fav as $f){
+        foreach ($fav as $f) {
             $data[$f['destination_id']] = $f['isFavorite'] == 1 ? true : false ?? false;
         }
 
-        if($data != null){
+        if ($data != null) {
             return response()->json($data);
         } else {
             return response([
                 "error" => "favorite data empty"
             ]);
         }
-
     }
 
     /**
@@ -63,17 +62,16 @@ class FavoriteController extends Controller
 
         $user = User::find($r->user_id);
         $fav = Favorite::where('destination_id', $r->destination_id)->where('user_id', $r->user_id)->get();
-        
+
         if ($fav->isEmpty()) {
 
             $newFav = Favorite::create([
-            'user_id' => $r->user_id,
-            'destination_id' => $r->destination_id,
-            'isFavorite' => true,
+                'user_id' => $r->user_id,
+                'destination_id' => $r->destination_id,
+                'isFavorite' => true,
             ]);
 
             return $newFav;
-
         } else {
 
             Favorite::where('destination_id', $r->destination_id)->where('user_id', $r->user_id)->update([
@@ -86,7 +84,7 @@ class FavoriteController extends Controller
         }
 
         $response = ['message' => 'Could not update status'];
-        
+
 
         return response($response, 401);
     }

@@ -130,7 +130,7 @@ class OrderController extends Controller
 
         $order = Order::where('id', $id)->update([
             'start_date' => $orderObject->start_date,
-            'end_date' => $orderObject->end_date,
+            'duration' => $orderObject->duration,
             'ticket_quantity' => $orderObject->ticket_quantity,
             'total_amount' => $orderObject->total_amount,
             'payment_status' => "success",

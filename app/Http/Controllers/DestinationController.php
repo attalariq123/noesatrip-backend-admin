@@ -136,9 +136,12 @@ class DestinationController extends Controller
      * @param  str  $name
      * @return \Illuminate\Http\Response
      */
-    public function searchDestination($name)
+    public function searchDestination(Request $r)
     {
-        return Destination::where('name', 'like', '%' . $name . '%')->get();
+        $r->headers->set('Accept', 'application/json');
+        $r->headers->set('Content-Type', 'application/json');
+
+        return Destination::where('name', 'like', '%' . $r['query'] . '%')->get();
     }
 
     /**

@@ -27,7 +27,7 @@ Route::get('/destinations/{id}', [DestinationController::class, 'showDestination
 // Protected Route
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
-    Route::get('/destinations/search/{name}', [DestinationController::class, 'searchDestination']);
+    Route::post('/destinations/search', [DestinationController::class, 'searchDestination']);
 
     Route::get('/orders/{user_id}', [OrderController::class, 'getUserOrder']);
     Route::post('/orders', [OrderController::class, 'createUserOrder']);
